@@ -21,21 +21,39 @@ public class MainActivity extends AppCompatActivity {
         precoAlcool = findViewById(R.id.alcool_id);
         precoGasolina = findViewById(R.id.gasolina_id);
         resultado = findViewById(R.id.resultado_id);
+        if(precoAlcool.getText().length() == 0){
+            precoAlcool.setError("digite o preço!");
+        }else {
+
+        }
 
     }
 
     public void calcularResultado(View view){
         /* Calcula se alcool/gasolina >=70%  e  se for recomenda uso da gasolina do contrario alcool*/
 
-        Double alcool = Double.parseDouble(precoAlcool.getText().toString());
-        Double gasolina = Double.parseDouble(precoGasolina.getText().toString());
-        Double resultadoCalculo = alcool/gasolina;
+        if(precoAlcool.getText().length() == 0){
 
-        if(resultadoCalculo >= 0.7){
-            resultado.setText("USE GASOLINA");
+            precoAlcool.setError("campo obrigatório");
+
+        }else if(precoGasolina.getText().length() == 0){
+
+            precoAlcool.setError("campo obrigatório");
+
         }else{
-            resultado.setText("USE ÁLCOOL");
+            Double alcool = Double.parseDouble(precoAlcool.getText().toString());
+            Double gasolina = Double.parseDouble(precoGasolina.getText().toString());
+            Double resultadoCalculo = alcool/gasolina;
+
+            if(resultadoCalculo >= 0.7){
+                resultado.setText("USE GASOLINA");
+            }else{
+                resultado.setText("USE ÁLCOOL");
+            }
+
         }
+
+
 
 
 
