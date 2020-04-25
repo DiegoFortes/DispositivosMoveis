@@ -21,11 +21,6 @@ public class MainActivity extends AppCompatActivity {
         precoAlcool = findViewById(R.id.alcool_id);
         precoGasolina = findViewById(R.id.gasolina_id);
         resultado = findViewById(R.id.resultado_id);
-        if(precoAlcool.getText().length() == 0){
-            precoAlcool.setError("digite o preço!");
-        }else {
-
-        }
 
     }
 
@@ -38,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         }else if(precoGasolina.getText().length() == 0){
 
-            precoAlcool.setError("campo obrigatório");
+            precoGasolina.setError("campo obrigatório");
 
         }else{
             Double alcool = Double.parseDouble(precoAlcool.getText().toString());
